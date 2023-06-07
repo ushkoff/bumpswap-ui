@@ -65,7 +65,7 @@ export const Tokens: React.FC = () => {
           <tr className="border-b-2 h-12" key={token._id}>
             <td className="w-1/3 py-2 font-bold">{`(${token.symbol})`}</td>
             <td className="w-1/3 py-2">{token.name}</td>
-            <td className="w-1/3 py-2">{Math.round(token.totalSupply * 100) / 100}</td>
+            <td className="w-1/3 py-2">{Math.round(token.totalSupply * 1000) / 1000}</td>
           </tr>
         ))}
         </tbody>
