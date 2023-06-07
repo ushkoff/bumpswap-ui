@@ -1,13 +1,14 @@
 import React from 'react';
+import { Header } from './modules/header';
+import { Main } from './modules/main';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="text-3xl font-bold underline">
-          BumpSwap
-        </h1>
-      </header>
+    <div className='App bg-stone-100'>
+      <div className='container mx-auto '>
+        <Header/>
+        <Main/>
+      </div>
     </div>
   );
 }
