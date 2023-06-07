@@ -4,6 +4,7 @@ import { Tokens } from '../tokens';
 import { EthToTokenSwaps } from '../Swaps/ethToToken';
 import { TokenToEthSwaps } from '../Swaps/tokenToEth';
 import { Liquidity } from '../Liquidity';
+import { Orders } from '../Orders';
 
 export const Main: React.FC = () => {
   const [data, setData] = useState<any>({});
@@ -22,13 +23,16 @@ export const Main: React.FC = () => {
           <Tokens/>
         </div>
       ) : (
-        <div className='flex justify-between items-start gap-20' key={counter}>
-          {ethToToken ? (
-            <EthToTokenSwaps exchangeId={data.exchangeId} setSwapData={handleSetData} switchToEthSwap={setEthToToken}/>
-          ) : (
-            <TokenToEthSwaps exchangeId={data.exchangeId} setSwapData={handleSetData} switchToEthSwap={setEthToToken}/>
-          )}
-          <Liquidity exchangeId={data.exchangeId} updateCounter={setCounter}/>
+        <div key={counter}>
+          <div className='flex justify-between items-start gap-20'>
+            {ethToToken ? (
+              <EthToTokenSwaps exchangeId={data.exchangeId} setSwapData={handleSetData} switchToEthSwap={setEthToToken}/>
+            ) : (
+              <TokenToEthSwaps exchangeId={data.exchangeId} setSwapData={handleSetData} switchToEthSwap={setEthToToken}/>
+            )}
+            <Liquidity exchangeId={data.exchangeId} updateCounter={setCounter}/>
+          </div>
+          <Orders exchangeId={data.exchangeId}/>
         </div>
       )}
     </div>
